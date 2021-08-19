@@ -11,7 +11,7 @@ public class Obstaculo : MonoBehaviour
 {
 
     [SerializeField] 
-    private float velocidade = 0.5f;
+    private float velocidade = 1.2f;
     [SerializeField]
     private float variacaoY;
     private Pontuacao pontuacao;
