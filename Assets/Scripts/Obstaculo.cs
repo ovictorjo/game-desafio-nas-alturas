@@ -18,8 +18,18 @@ public class Obstaculo : MonoBehaviour
         this.transform.Translate(Vector3.up * Random.Range(-variacaoY, variacaoY));
     }
 
-    void Update()
+    private void Update()
     {
         this.transform.Translate(Vector3.left * (this.velocidade * Time.deltaTime));
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        this.Destruir();
+    }
+
+    private void Destruir()
+    {
+        GameObject.Destroy(this.gameObject);
     }
 }
