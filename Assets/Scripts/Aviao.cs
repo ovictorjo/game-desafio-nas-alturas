@@ -8,12 +8,19 @@ public class Aviao : MonoBehaviour
     private Rigidbody2D fisica;
     
     [SerializeField] private float forca;
-
+    private Vector3 posicaoInicial;
     private Diretor diretor;
 
-    private void Awake()
+    //chamado quando o objeto for criado
+    private void Awake() 
     {
         this.fisica = GetComponent<Rigidbody2D>();
+        this.posicaoInicial = this.transform.position;
+    }
+
+    //chamado quando a cena for criada
+    private void Start() 
+    {
         this.diretor = GameObject.FindObjectOfType<Diretor>();
     }
 
@@ -35,5 +42,11 @@ public class Aviao : MonoBehaviour
     {
         this.fisica.simulated = false;
         this.diretor.FinalizarJogo();
+    }
+
+    public void Reiniciar()
+    {
+        this.transform.position = this.posicaoInicial;
+        this.fisica.simulated = true;
     }
 }
